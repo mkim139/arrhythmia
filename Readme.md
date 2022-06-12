@@ -44,8 +44,50 @@ Heart Disease AI Datathon 2021에서 제공한 개인 심전도 (ECG) 데이터�
 4. 각 lead를 연결하여 하나의 긴 sequence로 만들고 전처리 마무리
 (Normalization도 고려했으나 performance 개선에 유의미한 영향을 미치지 못함)
 
+## 모델링
+
+![image](https://user-images.githubusercontent.com/32697109/173258260-85ee287f-48a9-46aa-be3e-8899d1315a0e.png)
+
+
+LSTM 모델
+LSTM을 활용하여 Sequence를 읽고, final hidden layer를 연속적인 fully connected layer들에 통과시켜 final binary (부정맥 여부) classification 시도 (Lead I,II,III 각각 모델을 만들어 퍼포먼스 확인)  
+Maximum ~80% accuracy 달성  
+Attention도 추가해 보았으나 개선 x  
+
+Comment
+* Sequence가 너무 길어 training time이 길어짐 (length = 1249)  
+* 긴 sequence는 LSTM을 사용한다고 해도, vanishing gradient 또는 explosion을 초래 할 수 있음  
+* 비효율적인 훈련 시간으로 다양한 구조를 시행해볼 시간이 부족  
+&#8594; CNN구조를 사용하는 것으로 결정  
+
+![image](https://user-images.githubusercontent.com/32697109/173258277-84cf4993-d3fd-41b8-bd87-00ce2d21b27e.png)
+
+* 1-dimensional CNN을 쌓아여 sequence pattern을 분석하도록 설계  
+* 여러 lead sequence를 이어붙임 (LSTM과 다르게 시계열성에서 독립)  
+* Multi-filter를 사용하여 다양한 너비의 view를 볼 수 있도록 구성 (kernel size 3, 5, 7 로 layer를 거친 후 concat)  
+* Skip-connection 구조를 추가하여 deep한 모델을 만들고 vanishing gradient 문제를 개선 (얕은 모델에서 실험결과 ~.7% acc 개선, deep 한 경우 더 gap이 클 것으로 예상)  
+* LSTM보다 더 빠른 훈련 속도를 보임 (~3s/it -> ~5it/s)  
+* ACC: 97.4%, AUC: 99.7% 달성  
+
 
 Performance 99.7% AUC (AUC curve)
 
 ![AUC curve](https://user-images.githubusercontent.com/32697109/173234422-f2352a0d-d97e-4bcc-bbf0-a97b40af2887.png)
+
+
+
+
+## To-Be
+
+![image](https://user-images.githubusercontent.com/32697109/173258375-c9194ee9-ea15-49e0-9657-57928000fdb3.png)
+*Squeeze-and-Excite*
+
+![image](https://user-images.githubusercontent.com/32697109/173258389-d5c18d10-1b89-474a-a80e-9fcb1fbef840.png)
+*Ectopic Wave*
+
+* MobileNet등에서 활용된 Squeeze-and-excite과 같은 attention approach를 활용하여 불필요한 feature에 attend를 덜하는 방식을 고려해 봤을 수 있을 것 같음
+&#8594; 작은 anomaly pattern의 경우, 다른 normal pattern에 	overridden 되어 충분한 weight을 얻지 못했을 수 있음 
+&#8594; 실제로 Ectopic Atrial Rhythm의 error rate은 54%정도였고, 	일반인의 눈으로는 부정맥임을 판단하기 어려울 정도로 작은 anomal 	pattern임 (작은 Kernel size를 활용하여 개선이 되었으나, 여전히 	가장 높은 error rate을 보임)
+
+
 
