@@ -49,7 +49,7 @@ Heart Disease AI Datathon 2021에서 제공한 개인 심전도 (ECG) 데이터�
 ![image](https://user-images.githubusercontent.com/32697109/173258260-85ee287f-48a9-46aa-be3e-8899d1315a0e.png)
 
 
-LSTM 모델
+LSTM 모델  
 LSTM을 활용하여 Sequence를 읽고, final hidden layer를 연속적인 fully connected layer들에 통과시켜 final binary (부정맥 여부) classification 시도 (Lead I,II,III 각각 모델을 만들어 퍼포먼스 확인)  
 Maximum ~80% accuracy 달성  
 Attention도 추가해 보았으나 개선 x  
@@ -62,6 +62,7 @@ Comment
 
 ![image](https://user-images.githubusercontent.com/32697109/173258277-84cf4993-d3fd-41b8-bd87-00ce2d21b27e.png)
 
+CNN Model  
 * 1-dimensional CNN을 쌓아여 sequence pattern을 분석하도록 설계  
 * 여러 lead sequence를 이어붙임 (LSTM과 다르게 시계열성에서 독립)  
 * Multi-filter를 사용하여 다양한 너비의 view를 볼 수 있도록 구성 (kernel size 3, 5, 7 로 layer를 거친 후 concat)  
