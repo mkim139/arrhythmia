@@ -30,11 +30,13 @@ Heart Disease AI Datathon 2021에서 제공한 개인 심전도 (ECG) 데이터�
 
 ## 전처리 과정
 
-기울어진 데이터
-![image](https://user-images.githubusercontent.com/32697109/173258084-d3859cff-c1fc-4607-a0b8-00cdaa34274e.png)
 
-Aligned 데이터
+![image](https://user-images.githubusercontent.com/32697109/173258084-d3859cff-c1fc-4607-a0b8-00cdaa34274e.png)
+*기울어진 데이터*
+
 ![image](https://user-images.githubusercontent.com/32697109/173258095-e70e6746-d4d5-4160-b946-0f21a55c1336.png)
+*Aligned 데이터*
+
 
 1. 64bit encoding에서 Numerical Sequence로 변경
 2. Neurokit package에서 제공하는 필터를 이용하여 움직임으로 생긴 듯한 기울어짐이나 노이즈 제거 (‘Neurokit Signal filter’)
