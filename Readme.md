@@ -86,9 +86,9 @@ Performance 99.7% AUC (AUC curve)
 ![image](https://user-images.githubusercontent.com/32697109/173258389-d5c18d10-1b89-474a-a80e-9fcb1fbef840.png)
 *Ectopic Wave*
 
-* MobileNet등에서 활용된 Squeeze-and-excite과 같은 attention approach를 활용하여 불필요한 feature에 attend를 덜하는 방식을 고려해 봤을 수 있을 것 같음
-&#8594; 작은 anomaly pattern의 경우, 다른 normal pattern에 	overridden 되어 충분한 weight을 얻지 못했을 수 있음 
-&#8594; 실제로 Ectopic Atrial Rhythm의 error rate은 54%정도였고, 	일반인의 눈으로는 부정맥임을 판단하기 어려울 정도로 작은 anomal 	pattern임 (작은 Kernel size를 활용하여 개선이 되었으나, 여전히 	가장 높은 error rate을 보임)
+* MobileNet등에서 활용된 Squeeze-and-excite과 같은 attention approach를 활용하여 불필요한 feature에 attend를 덜하는 방식을 고려해 봤을 수 있을 것 같음  
+&#8594; 작은 anomaly pattern의 경우, 다른 normal pattern에 	overridden 되어 충분한 weight을 얻지 못했을 수 있음  
+&#8594; 실제로 Ectopic Atrial Rhythm의 error rate은 54%정도였고, 일반인의 눈으로는 부정맥임을 판단하기 어려울 정도로 작은 anomal 	pattern임 (작은 Kernel size를 활용하여 개선이 되었으나, 여전히 가장 높은 error rate을 보임)  
 
 
 
