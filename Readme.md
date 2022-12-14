@@ -79,7 +79,7 @@ Specificity Barplot
 ![image](https://user-images.githubusercontent.com/32697109/207476181-8cb08659-a05d-4fe3-b73d-4c853009c446.png)
 
 
-Class별 Probability Distribution
+Class별 Probability Distribution  
 ![image](https://user-images.githubusercontent.com/32697109/207475135-a1201951-0a06-4907-8109-67d66bd2e3c5.png)  
 * 0이 정상  
 * 5,10 type이 가장 Prediction Probability가 낮게 나와 문제가 되고 있음  
