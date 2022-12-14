@@ -75,8 +75,25 @@ Performance 99.7% AUC (AUC curve)
 
 ![AUC curve](https://user-images.githubusercontent.com/32697109/173234422-f2352a0d-d97e-4bcc-bbf0-a97b40af2887.png)
 
+Specificity Barplot  
+![image](https://user-images.githubusercontent.com/32697109/207476181-8cb08659-a05d-4fe3-b73d-4c853009c446.png)
 
 
+Class별 Probability Distribution
+![image](https://user-images.githubusercontent.com/32697109/207475135-a1201951-0a06-4907-8109-67d66bd2e3c5.png)  
+* 0이 정상  
+* 5,10 type이 가장 Prediction Probability가 낮게 나와 문제가 되고 있음  
+
+Class 별 Count  
+![image](https://user-images.githubusercontent.com/32697109/207475321-e10f8931-ba6c-4519-8514-608b93dd4c5f.png)  
+* 5번의 경우 Sample Count가 현저히 낮아, Augmentation이나 이 Class에 더 높은 Loss가 필요해 보임  
+* 10번의 경우 Sample Count는 높으나, 정상군과 많이 비슷한 형태를 가지고 있는것처럼 보임 (Type이름: Ectopic Wave)  
+
+Type별 T-SNE 결과  
+![image](https://user-images.githubusercontent.com/32697109/207475642-d2f4734d-a8d0-4ef4-8965-527f6cb496e2.png)
+* 정상군도 여러 Type으로 묶이고 있음 (Batch Effect, Clinical Bias, Demographic Bias etc...)  
+* Class 별로 Cluster가 잘되어 있는 경우도 있지만, 정상군의 Variance로 들어가는 Case들 또한 많음  
+* Accuracy만 믿기에는 Sample 숫자가 많아 Bias된 인사이트를 가져올 수 있음  
 
 ## To-Be
 
@@ -89,6 +106,8 @@ Performance 99.7% AUC (AUC curve)
 * MobileNet등에서 활용된 Squeeze-and-excite과 같은 attention approach를 활용하여 불필요한 feature에 attend를 덜하는 방식을 고려해 봤을 수 있을 것 같음  
 &#8594; 작은 anomaly pattern의 경우, 다른 normal pattern에 	overridden 되어 충분한 weight을 얻지 못했을 수 있음  
 &#8594; 실제로 Ectopic Atrial Rhythm의 error rate은 54%정도였고, 일반인의 눈으로는 부정맥임을 판단하기 어려울 정도로 작은 anomal 	pattern임 (작은 Kernel size를 활용하여 개선이 되었으나, 여전히 가장 높은 error rate을 보임)  
+
+
 
 
 
