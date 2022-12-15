@@ -95,6 +95,15 @@ Type별 T-SNE 결과
 * Class 별로 Cluster가 잘되어 있는 경우도 있지만, 정상군의 Variance로 들어가는 Case들 또한 많음  
 * Accuracy만 믿기에는 Sample 숫자가 많아 Bias된 인사이트를 가져올 수 있음  
 
+정상군 Clustering에 대한 의문  
+![image](https://user-images.githubusercontent.com/32697109/207988307-72dd9af2-3ad9-4f29-b687-bb97ef3e6bfe.png)  
+* 정상군이 각기 다른 type으로 Cluster가 되는것을 T-SNE결과에서 확인함  
+* 정상군을 Sample하여 확인해보면 Range가 각기 다른형태로 나타나는것을 볼 수 있음  
+* Mean은 0에 몰려있음
+
+![image](https://user-images.githubusercontent.com/32697109/207988665-ba935a44-208e-4e4b-b634-43d586605700.png)  
+* 같은 정상군이라도 여러 Type으로 나뉘는것을 확인할 수 있음
+
 ## To-Be
 
 ![image](https://user-images.githubusercontent.com/32697109/173258375-c9194ee9-ea15-49e0-9657-57928000fdb3.png)
