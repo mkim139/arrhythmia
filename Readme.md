@@ -102,7 +102,9 @@ Type별 T-SNE 결과
 * Mean은 0에 몰려있음
 
 ![image](https://user-images.githubusercontent.com/32697109/207988665-ba935a44-208e-4e4b-b634-43d586605700.png)  
-* 같은 정상군이라도 여러 Type으로 나뉘는것을 확인할 수 있음
+* 같은 정상군이라도 여러 Type으로 나뉘는것을 확인할 수 있음  
+* 이러한 현상이 너무 다양한 정상군들을 만들어 Variance를 증가 시킬 수 있음  
+* 높은 정상군의 Variance는 암과의 구분선을 더욱 복잡하게 만들 우려가 있음  
 
 ## To-Be
 
